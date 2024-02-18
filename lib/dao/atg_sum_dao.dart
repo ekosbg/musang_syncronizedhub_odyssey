@@ -3,6 +3,10 @@ import 'package:musang_syncronizehub_odyssey/services/postgrest_service.dart';
 import 'package:postgrest/postgrest.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+/**
+ * Change to stored procedure or function in postgresql process_atg_summary(fromDate, endDate, siteID)
+ * Feb 18 2024 11:01
+ */
 class AtgSumDao {
   final PostgrestClient _client;
 
