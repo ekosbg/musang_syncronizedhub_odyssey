@@ -3,8 +3,10 @@ import 'package:built_value/serializer.dart';
 
 part 'atgSummary_model.g.dart';
 
-abstract class ATGSummaryModel implements Built<ATGSummaryModel, ATGSummaryModelBuilder> {
-  static Serializer<ATGSummaryModel> get serializer => _$aTGSummaryModelSerializer;
+abstract class ATGSummaryModel
+    implements Built<ATGSummaryModel, ATGSummaryModelBuilder> {
+  static Serializer<ATGSummaryModel> get serializer =>
+      _$aTGSummaryModelSerializer;
 
   int get id;
   DateTime? get from_date;
@@ -12,8 +14,9 @@ abstract class ATGSummaryModel implements Built<ATGSummaryModel, ATGSummaryModel
   double? get from_tank_position;
   double? get last_tank_position;
   double? get change;
+  int? get site_id; //add site id
 
   ATGSummaryModel._();
-  factory ATGSummaryModel([void Function(ATGSummaryModelBuilder) updates]) = _$ATGSummaryModel;
-
+  factory ATGSummaryModel([void Function(ATGSummaryModelBuilder) updates]) =
+      _$ATGSummaryModel;
 }

@@ -11,6 +11,19 @@ class AtgSumDao {
 
   AtgSumDao(PostgrestService service) : _client = service.client;
 
+  /** Supabase Function: process_atg_summary_setof_atg_summary(fromDate,endDate,siteID)
+   * Parameter: fromDate first date of user choice
+   *            endDate last date of user choice
+   *            siteID is the site base on assignment for each user has site after login 
+   * Result : set of column data from table atg_summary( from_date, end_date, change, site_id)           
+   *  */
+  /* 
+  Future<List<ATGSummaryModel>> readSetOf({DateTimeRange? dateRange}) async {
+    final userList = await supabase.rpc('process_atg_summary_setof_atg_summary', 
+       params: {'fromDate': dateRange.Start, 'end_date': dateRange.End, 'siteID': users.siteID}); 
+  }
+  */
+
   Future<List<ATGSummaryModel>> read(int page, int limit,
       {DateTimeRange? dateRange}) async {
     try {
@@ -18,7 +31,7 @@ class AtgSumDao {
       var query = _client
           .from('atg_summary')
           .select(
-              'id, from_date, end_date, from_tank_position, last_tank_position, change')
+              'id, from_date, end_date, from_tank_position, last_tank_position, change, site_id')
           .order('from_date', ascending: false)
           .range(offset, offset + limit - 1);
 
